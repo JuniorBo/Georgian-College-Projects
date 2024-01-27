@@ -1,0 +1,95 @@
+body {
+    background-color: #f7f7f7;
+    text-align: center;
+    font-family: 'Gabarito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+h1 {
+    font-size: 60px;
+    color: #484848;
+    font-family: 'Noto Sans NKo Unjoined', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100; 
+}
+
+#portal {
+    text-align: center;
+    width: 460px;
+    height: 320px;
+    background-color: #e8e8e8;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+    background-image: url("../images/489.jpg");
+    background-size: 100% 100%;
+    background-position: center top -28px;
+    margin: 0 auto;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 30px;
+    padding-top: 100px; 
+}
+
+
+#portal a {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #164fb9;
+    color: white;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#portal a:hover {
+    background-color: #001b4c;
+    color: white;
+    font-weight: bold;
+}
+
+#content-links, #auth-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#button a {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #164fb9;
+    color: white;
+    border-radius: 20px;
+}
+
+#button a:hover {
+    background-color: #001b4c;
+    color: white;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: auto;
+}
