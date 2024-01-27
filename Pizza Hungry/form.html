@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Pizza Hungry</title>
+	<meta name="author" content="Demilson" />
+	<meta name="description" content="Web Page for user order a pizza using forms">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="JavaScript/jquery/dist/jquery.validate.min.js"></script>
+	<script src="javaScript/formprogressbar.js"></script>
+</head>
+
+<body>
+	<!-- Page Header -->
+	<header>
+		<!-- Logo -->
+		<div class="logo">
+			<a href="index.html">
+				<img src="images/PizzaLogo.png" alt="Pizza Hungry Logo" width="300" height="100">
+			</a>
+		</div>
+		<!-- Menu with options -->
+		<nav>
+			<ul class="menu-custom">
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Menu</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<h1 class="custom-h" style="color: rgb(227, 73, 73);">Order your pizza!</h1>
+		<h2 class="custom-h" style="color: rgb(227, 73, 73);">Please, fill the informations below:</h2>
+
+		<div class="container">
+			<div style="height: 20px;"></div>
+			<div class="row">
+				<div class="col-md-12 progress" style="padding: 0;">
+					<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+						aria-valuemax="100">
+						<span class="progress-text">0% Complete</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form method="post" action="process-form.php" name="form" id="form">
+						<div class="form-group">
+							<!-- Inline form -->
+							<!-- Informations form -->
+							<div class="form-inline">
+								<label for="store_form_fname">Name:</label>
+								<input type="text" placeholder="First and last name" class="form-control outline"
+									id="store_form_fname" name="store_form_fname" required />
+							</div>
+							<div class="form-inline">
+								<label for="store_form_address">Address:</label>
+								<input type="text" placeholder="Address with unit" class="form-control outline"
+									id="store_form_address" name="store_form_address" required />
+							</div>
+							<div class="form-inline">
+								<label for="store_form_email">Email:</label>
+								<input type="text" class="form-control outline" placeholder="example@email.com"
+									id="store_form_email" name="store_form_email" required />
+							</div>
+						</div>
+
+						<!-- Pizza form -->
+						<div class="form-group">
+							<div class="form-inline">
+								<label for="store_form_quantity">Nº of Pizzas:</label>
+								<input type="number" placeholder="Nº" class="form-control outline"
+									id="store_form_quantity" name="store_form_quantity" min="1" max="3" required
+									style="width: 30px">
+							</div>
+
+							<!-- Radio button, select size -->
+							<div class="form-inline">
+								<label for="store_form_size">Size:</label>
+								<label for="option1">
+									<input type="radio" id="option1" name="store_form_size" value="Small" required>
+									<span class="radio-btn"></span>
+									Small (8 Slices)
+								</label>
+								<label for="option2">
+									<input type="radio" id="option2" name="store_form_size" value="Medium" required>
+									<span class="radio-btn"></span>
+									Medium (10 Slices)
+								</label>
+								<label for="option3">
+									<input type="radio" id="option3" name="store_form_size" value="Large" required>
+									<span class="radio-btn"></span>
+									Large (12 Slices)
+								</label>
+							</div>
+						</div>
+
+						<!-- Checkbox with images -->
+						<div class="form-inline">
+							<div class="checkbox-container">
+								<div class="checkbox-images">
+									<div class="checkbox-item">
+										<input type="checkbox" id="pizza-1" name="pizza-1" />
+										<label for="pizza-1">
+											<img src="images/Margherita.png" />
+										</label>
+										<div class="pizza-description">
+											<p>Margherita</p>
+										</div>
+									</div>
+									<div class="checkbox-item">
+										<input type="checkbox" id="pizza-2" name="pizza-2" />
+										<label for="pizza-2">
+											<img src="images/Pepperoni.png" />
+										</label>
+										<div class="pizza-description">
+											<p>Pepperoni</p>
+										</div>
+									</div>
+									<div class="checkbox-item">
+										<input type="checkbox" id="pizza-3" name="pizza-3" />
+										<label for="pizza-3">
+											<img src="images/Vegan.png" />
+										</label>
+										<div class="pizza-description">
+											<p>Vegan</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Special Request Box -->
+						<div class="form-group">
+							<div class="form-inline">
+								<label for="store_form_request">Special Request?</label>
+								<input type="text" placeholder="No onion, two pizzas of Pepperoni, etc."
+									class="form-control outline" id="store_form_request" name="store_form_request"
+									style="width: 300px" height="100px" />
+							</div>
+						</div>
+
+						<!-- Payment Form -->
+						<div class="form-group">
+							<div class="form-inline">
+								<label for="store_form_payment">Payment:</label>
+								<select name="store_form_payment" id="store_form_payment">
+									<option value="" disabled selected>Choose an option</option>
+									<option value="debit-cred">Debit/Cred</option>
+									<option value="cash">Cash</option>
+									<option value="voucher">Voucher</option>
+								</select>
+							</div>
+						</div>
+
+
+						<!-- Input button -->
+						<div class="form-group" style="margin-top: 20px;">
+							<div>
+								<input type="submit" class="submit-button" id="submit-button" name="submit-button"
+									value="Submit" />
+							</div>
+						</div>
+				</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</main>
+
+	<footer>
+		<p><small>© Pizza Hungry Company</small></p>
+	</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+References used
+
+https://blog.logrocket.com/how-to-style-forms-with-css-a-beginners-guide/
+
+https://codepen.io/alvarotrigo/pen/dyVYJmJ
+
+https://alvarotrigo.com/blog/progress-bar-css/
+
+https://www.programiz.com/html/form
+
+https://stackoverflow.com/questions/4790281/is-it-possible-put-image-in-input-type-check-box
