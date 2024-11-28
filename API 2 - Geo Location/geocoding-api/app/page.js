@@ -79,7 +79,7 @@ export default function GeocodingGenerator() {
 
           {geocodingData && (
             <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-4">Geocoding Data</h2>
+              <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Geocoding Data</h2>
               <div className="space-y-2 text-gray-700">
                 <p><span className="font-medium">City:</span> {geocodingData.name}</p>
                 <p><span className="font-medium">Country:</span> {geocodingData.country}</p>
