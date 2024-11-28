@@ -48,22 +48,22 @@ export default function QRCodeGenerator() {
       </Head>
       <Navbar />
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-6 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation mb-4">
-            <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-              Create Your QR Code
+      <div className="container mx-auto px-4 py-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="glass-card p-5 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation mb-4">
+            <h1 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+              ✨ Create Your QR Code
             </h1>
 
             <div className="space-y-6">
               <div className="flex flex-col gap-2">
-                <label htmlFor="url" className="text-gray-700 font-medium text-lg flex items-center gap-2">
+                <label htmlFor="url" className="text-gray-700 font-medium text-base flex items-center gap-2">
                   <span className="text-xl">🔗</span> Enter URL
                 </label>
                 <input
                   type="url"
                   id="url"
-                  className="glass-card p-4 rounded-lg border border-gray-200/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg"
+                  className="glass-card p-4 rounded-lg border border-gray-200/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-base"
                   placeholder="https://example.com"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
@@ -79,7 +79,7 @@ export default function QRCodeGenerator() {
               <button
                 onClick={generateQRCode}
                 disabled={loading}
-                className="gradient-button w-full py-4 rounded-lg text-white font-semibold text-lg shadow-lg disabled:opacity-50 hover:shadow-xl transition-all duration-300"
+                className="gradient-button w-full py-3 rounded-lg text-white font-semibold text-base shadow-lg disabled:opacity-50 hover:shadow-xl transition-all duration-300"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-3">
@@ -98,13 +98,13 @@ export default function QRCodeGenerator() {
               </button>
 
               {qrCodeUrl && (
-                <div className="mt-8 text-center animate-fade-in">
-                  <div className="mb-6 p-6 bg-white rounded-xl shadow-lg inline-block hover:shadow-xl transition-shadow">
+                <div className="mt-6 text-center animate-fade-in">
+                  <div className="mb-4 p-5 bg-white rounded-xl shadow-lg inline-block hover:shadow-xl transition-shadow">
                     <Image
                       src={qrCodeUrl}
                       alt="Generated QR Code"
-                      width={250}
-                      height={250}
+                      width={200}
+                      height={200}
                       className="mx-auto"
                     />
                   </div>
@@ -117,7 +117,7 @@ export default function QRCodeGenerator() {
                       link.click();
                       document.body.removeChild(link);
                     }}
-                    className="gradient-button px-8 py-3 rounded-lg text-white font-semibold hover:shadow-xl transition-all duration-300 flex items-center gap-2 mx-auto"
+                    className="gradient-button px-5 py-2 rounded-lg text-white font-medium text-base hover:shadow-xl transition-all duration-300 flex items-center gap-2 mx-auto"
                   >
                     <span>Download QR Code</span>
                     <span className="text-xl">⬇️</span>
@@ -127,11 +127,14 @@ export default function QRCodeGenerator() {
             </div>
           </div>
 
-          <div className="glass-card rounded-xl p-6 border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation">
-            <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent flex items-center gap-2">
-              How to Use
+          <div className="glass-card p-5 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation">
+            <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+              <span className="text-2xl">📖</span>
+              <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                How to Use
+              </span>
             </h2>
-            <ol className="space-y-4 text-gray-700">
+            <ol className="space-y-3 text-gray-700">
               <li className="flex items-center gap-4 hover:translate-x-1 transition-transform">
                 <span className="w-8 h-8 flex items-center justify-center bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full font-bold">1</span>
                 Enter a valid URL in the input field
