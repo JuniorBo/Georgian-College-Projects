@@ -41,16 +41,16 @@ export default function QRCodeGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="h-screen overflow-auto bg-gradient-to-br from-gray-50 to-gray-100">
       <Head>
         <title>QR Code Generator</title>
         <meta name="description" content="Generate QR codes instantly" />
       </Head>
       <Navbar />
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-8 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation mb-8">
+          <div className="glass-card p-6 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation mb-4">
             <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
               Create Your QR Code
             </h1>
@@ -127,7 +127,7 @@ export default function QRCodeGenerator() {
             </div>
           </div>
 
-          <div className="glass-card rounded-xl p-8 border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation">
+          <div className="glass-card rounded-xl p-6 border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation">
             <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent flex items-center gap-2">
               How to Use
             </h2>

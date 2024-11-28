@@ -7,16 +7,16 @@ import '../styles/globals.css'
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="h-screen overflow-auto bg-gradient-to-br from-gray-50 to-gray-100">
       <Head>
         <title>About - QR Code Generator</title>
         <meta name="description" content="About our QR code generator" />
       </Head>
       <Navbar />
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-8 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation">
+          <div className="glass-card p-6 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation">
             <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
               ✨ About QR Generator
             </h1>

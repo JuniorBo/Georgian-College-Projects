@@ -42,7 +42,7 @@ const projects = [
     technologies: ['Next.js', 'JavaScript', 'Tailwind CSS'],
     liveLink: 'https://example.com',
     githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/API%201%20-%20QR%20Code%20Generator/qr-code-generator',
-    imageUrl: '/images/apiqrcode.jpg'
+    imageUrl: '/images/apiqrcode.png'
   },
   {
     id: 5,
