@@ -22,108 +22,106 @@ export default function QRCodeGenerator() {
 
     try {
       const response = await axios.get('https://api.api-ninjas.com/v1/qrcode', {
-        params: { data: url, format: 'png' },
-        headers: {
-          'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
-          'Accept': 'image/png'
+        params: {
+          data: url,
+          format: 'png',
         },
-        responseType: 'blob'
+        headers: {
+          'X-Api-Key': '4UMN3G+fdFaRUOeogXaD2g==Yp9yLR3HHP3kWLSM',
+          Accept: 'image/png',
+        },
+        responseType: 'blob',
       });
 
       const imageUrl = URL.createObjectURL(new Blob([response.data]));
       setQrCodeUrl(imageUrl);
     } catch (err) {
-      setError('Failed to generate QR code. Please try again.');
+      setError('Failed to generate QR Code');
       console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
+  const downloadQRCode = () => {
+    if (qrCodeUrl) {
+      const link = document.createElement('a');
+      link.href = qrCodeUrl;
+      link.download = 'qr-code.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gray-100">
       <Head>
         <title>QR Code Generator</title>
-        <meta name="description" content="Generate QR codes instantly" />
+        <meta name="description" content="Generate and download custom QR codes easily!" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-3xl mx-auto">
-          <div className="glass-card rounded-2xl p-8 mb-8 transform hover:scale-[1.01] transition-all">
-            <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-              Create Your QR Code
-            </h1>
-            
-            <div className="space-y-6">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="url" className="text-gray-700 font-medium text-lg">
-                  Enter URL
-                </label>
-                <input
-                  type="url"
-                  id="url"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  placeholder="https://example.com"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 transition-all"
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+          <h1 className="text-3xl font-bold mb-4 text-gray-800 text-center">QR Code Generator</h1>
+
+          <div className="mb-4">
+            <label htmlFor="url" className="block text-gray-700 font-medium mb-2">
+              Enter URL
+            </label>
+            <input
+              type="text"
+              id="url"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              placeholder="https://example.com"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-gray-700 font-medium mb-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          <button
+            onClick={generateQRCode}
+            disabled={loading}
+            className={`w-full py-3 rounded-md text-white font-medium transition-transform transform ${
+              loading
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-emerald-600 hover:bg-emerald-700 hover:scale-105'
+            }`}
+          >
+            {loading ? 'Generating...' : 'Generate QR Code'}
+          </button>
+
+          {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
+
+          {qrCodeUrl && (
+            <div className="mt-8 text-center">
+              <div className="mb-4">
+                <Image
+                  src={qrCodeUrl}
+                  alt="Generated QR Code"
+                  width={250}
+                  height={250}
+                  className="mx-auto"
                 />
               </div>
-
-              {error && (
-                <div className="p-4 bg-red-50 text-red-500 rounded-lg border border-red-200 animate-fade-in">
-                  {error}
-                </div>
-              )}
-
               <button
-                onClick={generateQRCode}
-                disabled={loading}
-                className="gradient-button w-full py-4 rounded-lg text-white font-semibold text-lg shadow-lg disabled:opacity-50"
+                onClick={downloadQRCode}
+                className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-transform transform hover:scale-105"
               >
-                {loading ? (
-                  <span className="flex items-center justify-center gap-3">
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    Generating QR Code...
-                  </span>
-                ) : (
-                  'Generate QR Code'
-                )}
+                Download QR Code
               </button>
-
-              {qrCodeUrl && (
-                <div className="mt-8 text-center animate-fade-in">
-                  <div className="mb-6 p-4 bg-white rounded-xl shadow-lg inline-block">
-                    <Image
-                      src={qrCodeUrl}
-                      alt="Generated QR Code"
-                      width={250}
-                      height={250}
-                      className="mx-auto"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <button
-                      onClick={() => {
-                        const link = document.createElement('a');
-                        link.href = qrCodeUrl;
-                        link.download = 'qr-code.png';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                      }}
-                      className="gradient-button px-8 py-3 rounded-lg text-white font-semibold hover:scale-110 transition-transform"
-                    >
-                      Download QR Code
-                    </button>
-                  </div>
-                </div>
-              )}
             </div>
-          </div>
+          )}
+        </div>
+
+        <div className="max-w-2xl mx-auto mt-12 bg-white rounded-xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">How to Use</h2>
+          <ol className="list-decimal list-inside space-y-2 text-gray-700">
+            <li>Enter a valid URL in the input field</li>
+            <li>Click &quot;Generate QR Code&quot;</li>
+            <li>Download the generated QR Code image</li>
+          </ol>
         </div>
       </div>
     </div>
