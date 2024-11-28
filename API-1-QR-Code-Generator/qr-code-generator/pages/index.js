@@ -138,7 +138,7 @@ export default function QRCodeGenerator() {
               </li>
               <li className="flex items-center gap-4 hover:translate-x-1 transition-transform">
                 <span className="w-8 h-8 flex items-center justify-center bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full font-bold">2</span>
-                Click "Generate QR Code"
+                Click &quot;Generate QR Code&quot;
               </li>
               <li className="flex items-center gap-4 hover:translate-x-1 transition-transform">
                 <span className="w-8 h-8 flex items-center justify-center bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full font-bold">3</span>
