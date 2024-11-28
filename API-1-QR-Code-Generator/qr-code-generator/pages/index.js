@@ -47,14 +47,14 @@ export default function QRCodeGenerator() {
         <meta name="description" content="Generate QR codes instantly" />
       </Head>
       <Navbar />
-      
+
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="glass-card p-8 rounded-xl border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation mb-8">
             <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-            Create Your QR Code
+              Create Your QR Code
             </h1>
-            
+
             <div className="space-y-6">
               <div className="flex flex-col gap-2">
                 <label htmlFor="url" className="text-gray-700 font-medium text-lg flex items-center gap-2">
@@ -69,13 +69,13 @@ export default function QRCodeGenerator() {
                   onChange={(e) => setUrl(e.target.value)}
                 />
               </div>
-  
+
               {error && (
                 <div className="p-4 bg-red-50 text-red-500 rounded-lg border border-red-200 animate-fade-in flex items-center gap-2">
                   <span className="text-xl">⚠️</span> {error}
                 </div>
               )}
-  
+
               <button
                 onClick={generateQRCode}
                 disabled={loading}
@@ -96,7 +96,7 @@ export default function QRCodeGenerator() {
                   </span>
                 )}
               </button>
-  
+
               {qrCodeUrl && (
                 <div className="mt-8 text-center animate-fade-in">
                   <div className="mb-6 p-6 bg-white rounded-xl shadow-lg inline-block hover:shadow-xl transition-shadow">
@@ -126,10 +126,10 @@ export default function QRCodeGenerator() {
               )}
             </div>
           </div>
-  
+
           <div className="glass-card rounded-xl p-8 border border-gradient-to-r from-blue-200/30 to-emerald-200/30 hover-card-animation">
             <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent flex items-center gap-2">
-            How to Use
+              How to Use
             </h2>
             <ol className="space-y-4 text-gray-700">
               <li className="flex items-center gap-4 hover:translate-x-1 transition-transform">
