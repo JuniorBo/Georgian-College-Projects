@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import Navbar from '../components/navbar.js'
 import Link from 'next/link'
+import '../styles/globals.css'
 
 
 export default function About() {
