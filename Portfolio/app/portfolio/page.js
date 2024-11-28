@@ -21,7 +21,7 @@ const projects = [
     id: 2,
     title: 'Project 2 - Polaroid',
     description: 'Web application to "sell" polaroids online.',
-    technologies: ['Vue', 'Nuxt.js', 'SCSS'],
+    technologies: ['Vue', 'Next.js', 'SCSS'],
     liveLink: 'https://example.com',
     githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/Polaroid',
     imageUrl: '/images/project2-thumbnail.jpg'
@@ -37,27 +37,27 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Project 3 - Employee Portal',
-    description: 'Web application to manage employee information using database and PHP.',
-    technologies: ['MySQL', 'JavaScript', 'PHP'],
+    title: 'API 1 - QR Code Generator',
+    description: 'API to generate QR codes for given URL or text.',
+    technologies: ['Next.js', 'JavaScript', 'Tailwind CSS'],
     liveLink: 'https://example.com',
-    githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/Employee%20Portal',
-    imageUrl: '/images/project3-thumbnail.png'
+    githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/API%201%20-%20QR%20Code%20Generator/qr-code-generator',
+    imageUrl: '/images/apiqrcode.jpg'
   },
   {
     id: 5,
-    title: 'Project 3 - Employee Portal',
-    description: 'Web application to manage employee information using database and PHP.',
-    technologies: ['MySQL', 'JavaScript', 'PHP'],
+    title: 'API 2 - Geo Location',
+    description: 'API to get the Geo Location of a city.',
+    technologies: ['Next.js', 'JavaScript', 'Tailwind CSS'],
     liveLink: 'https://example.com',
     githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/Employee%20Portal',
     imageUrl: '/images/project3-thumbnail.png'
   },
   {
     id: 6,
-    title: 'Project 3 - Employee Portal',
-    description: 'Web application to manage employee information using database and PHP.',
-    technologies: ['MySQL', 'JavaScript', 'PHP'],
+    title: 'API 3 - Currency Converter',
+    description: 'API to convert currency from one to another.',
+    technologies: ['Next.js', 'JavaScript', 'Tailwind CSS'],
     liveLink: 'https://example.com',
     githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/Employee%20Portal',
     imageUrl: '/images/project3-thumbnail.png'
