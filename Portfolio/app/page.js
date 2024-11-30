@@ -5,33 +5,23 @@ Student ID: 200548728
 Email: 200548728@student.georgianc.on.ca
 */
 
-import Head from 'next/head'
-import Navbar from './components/Navbar'
-import styles from '../styles/Home.module.css'
-import Hero from './components/Hero'
-import Featured from './components/Featured'
+import Hero from '../components/sections/Hero'
+import Projects from '../components/sections/Projects'
+import Skills from '../components/sections/Skills'
+import Contact from '../components/sections/Contact'
+
+export const metadata = {
+  title: 'Demilson Junior - Full Stack Developer',
+  description: 'Portfolio website showcasing my projects and skills as a Full Stack Developer',
+}
 
 export default function Home() {
   return (
-    <div className={styles.container} style={{isolation: "isolate"}}>
-      <Head>
-        <title>Portfolio | Demilson Junior</title>
-        <meta name="description" content="Welcome to my portfolio website" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-
-        <main className={styles.main}>
-          <Hero />
-          <Featured />
-        </main>
-
-        <footer className={`${styles.footer} mt-auto py-6 text-center`}>
-          <p>&copy; {new Date().getFullYear()} Demilson Junior. All rights reserved.</p>
-        </footer>
-      </div>
-    </div>
+    <main className="flex min-h-screen flex-col">
+      <Hero />
+      <Skills />
+      <Projects />
+      <Contact />
+    </main>
   )
 }

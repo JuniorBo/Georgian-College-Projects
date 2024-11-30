@@ -4,35 +4,34 @@ Student ID: 200548728
 Email: 200548728@student.georgianc.on.ca
 */
 
-// app/layout.js
-import localFont from "next/font/local";
-import "./globals.css";
+import { Inter } from 'next/font/google'
+import Navbar from '@/components/Navbar'  
+import Footer from '@/components/Footer'
+import './globals.css'
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 export const metadata = {
-  title: "Demilson | Portfolio",
-  description: "Web developer portfolio showcasing my latest works",
-};
+  title: 'Demilson Junior - Full Stack Developer',
+  description: 'Portfolio website showcasing my projects and skills as a Full Stack Developer',
+  keywords: ['Full Stack Developer', 'React', 'Next.js', 'JavaScript'],
+}
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="layout-container">
-          {children}
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900`}>
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
         </div>
       </body>
     </html>
-  );
+  )
 }

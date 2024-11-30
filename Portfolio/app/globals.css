@@ -8,69 +8,32 @@ Email: 200548728@student.georgianc.on.ca
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Color system */
-  --primary: #2563eb;      /* Blue 600 */
-  --primary-light: #3b82f6; /* Blue 500 */
-  --primary-dark: #1d4ed8;  /* Blue 700 */
-  --accent: #8b5cf6;       /* Violet 500 */
-  --background: #ffffff;
-  --background-alt: #f8fafc;
-  --foreground: #0f172a;   /* Slate 900 */
-  --text-primary: #1e293b; /* Slate 800 */
-  --text-secondary: #475569; /* Slate 600 */
-  
-  /* Typography */
-  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  
-  /* Spacing */
-  --container-width: 1200px;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary: #3b82f6;
-    --primary-light: #60a5fa;
-    --primary-dark: #2563eb;
-    --accent: #a78bfa;
-    --background: #0f172a;
-    --background-alt: #1e293b;
-    --foreground: #f8fafc;
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
+@layer base {
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white;
   }
 }
 
-/* Base styles */
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-sans);
-  line-height: 1.5;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
 
-/* Reset styles */
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.2s ease;
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
-a:hover {
-  color: var(--primary);
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
 }
 
-.isolate {
-  isolation: isolate;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
