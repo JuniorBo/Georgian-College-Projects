@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Navbar from '../components/navbar'
 import Image from 'next/image'
 
@@ -55,9 +56,12 @@ export default function About() {
           <div className="text-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl shadow-lg p-12 text-white">
             <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="mb-8">Convert your first city coordinates now!</p>
-            <a href="/" className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Link
+              href="/"
+              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+            >
               Try It Now
-            </a>
+            </Link>
           </div>
         </div>
       </div>
