@@ -1,4 +1,3 @@
-// app/components/ProjectCard.js
 /*
 Name: Demilson Moreira Bose Junior
 Student ID: 200548728
@@ -11,36 +10,37 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const ProjectCard = ({ project }) => {
-  return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700"
-    >
-      <div className="relative aspect-video">
-        <Image
-          src={project.imageUrl || '/project-thumbnail.png'}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-300 hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-        {project.featured && (
-          <div className="absolute top-4 right-4">
-            <span className="bg-primary/90 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-              Featured
-            </span>
-          </div>
-        )}
-      </div>
-
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          {project.title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
-          {project.description}
-        </p>
+const ProjectCard = ({ project }) => (
+  <motion.div
+    key={project.id}
+    layout
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
+  >
+    <div className="relative aspect-video">
+      <Image
+        src={project.imageUrl}
+        alt={project.title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover"
+      />
+      {project.featured && (
+        <span className="absolute top-2 right-2 bg-primary text-white px-2 py-1 rounded-full text-xs z-10">
+          Featured
+        </span>
+      )}
+    </div>
+    
+    <div className="p-6">
+      <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+        {project.title}
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 mb-4">
+        {project.description}
+      </p>
 
         <div className="flex flex-wrap gap-2 mb-6">
           {project.technologies.map((tech, index) => (
@@ -78,6 +78,5 @@ const ProjectCard = ({ project }) => {
       </div>
     </motion.div>
   );
-};
-
+  
 export default ProjectCard;

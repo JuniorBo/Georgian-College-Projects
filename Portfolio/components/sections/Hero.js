@@ -6,6 +6,7 @@ Email: 200548728@student.georgianc.on.ca
 
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
@@ -15,20 +16,20 @@ export default function Hero() {
   return (
     <section className="min-h-[90vh] flex items-center">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
           <div>
-            <motion.h1 
+            <motion.h1
               className="text-5xl lg:text-6xl font-bold mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              Hi, I'm{' '}
+              Hi! I&apos;m{' '}
               <span className="text-primary">
                 Demilson Junior
               </span>
@@ -61,7 +62,7 @@ export default function Hero() {
                   View Projects
                 </Link>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -83,10 +84,12 @@ export default function Hero() {
           >
             <div className="relative w-full aspect-square">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl" />
-              <img
+              <Image
                 src="/personal-resize.jpg"
                 alt="Demilson Junior"
-                className="rounded-full object-cover w-full h-full relative z-10"
+                fill
+                className="rounded-full object-cover relative z-10"
+                priority
               />
             </div>
           </motion.div>

@@ -3,26 +3,34 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const allProjects = [
   {
     id: 1,
     title: 'Pizza Hungry',
     description: 'Modern pizza ordering platform with real-time order tracking.',
-    technologies: ['JavaScript', 'PHP', 'HTML', 'Full Stack'],
+    longDescription: 'A comprehensive pizza ordering system built with modern web technologies. Features include real-time order tracking, custom pizza builder, and integration with payment gateways.',
+    technologies: ['JavaScript', 'PHP', 'HTML'],
+    category: 'Full Stack',
     liveLink: 'https://georgian-college-projects.vercel.app',
     githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/Pizza%20Hungry',
     imageUrl: '/images/pizzahungry.jpg',
+    year: '2023',
     featured: true
   },
   {
     id: 2,
     title: 'Polaroid Website',
     description: 'Web application to "sell" polaroids online.',
+    longDescription: 'A seamless platform for selling polaroids, featuring user authentication, product management, and a responsive design.',
     technologies: ['Vue', 'Next.js', 'SCSS', 'Frontend'],
+    category: 'Frontend',
     liveLink: 'https://polaroid-pearl.vercel.app',
     githubLink: 'https://github.com/JuniorBo/Georgian-College-Projects/tree/main/Polaroid',
-    imageUrl: '/images/polaroid.jpg'
+    imageUrl: '/images/polaroid.jpg',
+    year: '2022-2023',
+    featured: false
   },
   {
     id: 7,
@@ -73,10 +81,18 @@ export default function ProjectsPage() {
     .filter(project => {
       const matchesCategory = category === 'All' || project.category === category;
       const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          project.description.toLowerCase().includes(searchQuery.toLowerCase());
+                            project.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     })
-    .sort((a, b) => sortBy === 'recent' ? b.year - a.year : a.title.localeCompare(b.title));
+    .sort((a, b) => {
+      if (sortBy === 'recent') {
+        const aYear = a.year ? parseInt(a.year.split('-')[0]) : 0;
+        const bYear = b.year ? parseInt(b.year.split('-')[0]) : 0;
+        return bYear - aYear;
+      } else {
+        return a.title.localeCompare(b.title);
+      }
+    });
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -149,15 +165,21 @@ export default function ProjectsPage() {
                     alt={project.title}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
+                  {project.featured && (
+                    <span className="absolute top-2 right-2 bg-primary text-white px-2 py-1 rounded-full text-xs z-10">
+                      Featured
+                    </span>
+                  )}
                 </div>
+                
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold">{project.title}</h3>
-                    <span className="text-sm text-gray-500">{project.year}</span>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    {project.longDescription}
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech, index) => (

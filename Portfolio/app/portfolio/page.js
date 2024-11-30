@@ -6,9 +6,10 @@ Email: 200548728@student.georgianc.on.ca
 
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../../components/Navbar';
 
 const technologies = ['All', 'React', 'Next.js', 'JavaScript', 'PHP', 'Vue'];
 
