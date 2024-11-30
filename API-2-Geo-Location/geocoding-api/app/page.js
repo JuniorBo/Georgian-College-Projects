@@ -46,13 +46,13 @@ export default function GeocodingGenerator() {
           <h1 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
             Geocoding Generator
           </h1>
-          
+
           <div className="mb-4">
             <label htmlFor="city" className="block text-gray-700 font-medium mb-2">
               Enter City
             </label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               id="city"
               value={city}
               onChange={(e) => setCity(e.target.value)}
@@ -61,17 +61,17 @@ export default function GeocodingGenerator() {
             />
           </div>
 
-          <button 
-  onClick={fetchGeocodingData}
-  disabled={loading}
-  className={`w-full py-3 rounded-lg font-medium transition-all duration-300 
-    ${loading 
-      ? 'bg-gray-400 cursor-not-allowed' 
-      : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white transform hover:-translate-y-0.5 hover:shadow-lg'
-    }`}
->
-  {loading ? 'Fetching...' : 'Get Geocoding Data'}
-</button>
+          <button
+            onClick={fetchGeocodingData}
+            disabled={loading}
+            className={`w-full py-3 rounded-lg font-medium transition-all duration-300 
+    ${loading
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white transform hover:-translate-y-0.5 hover:shadow-lg'
+              }`}
+          >
+            {loading ? 'Fetching...' : 'Get Geocoding Data'}
+          </button>
 
           {error && (
             <p className="text-red-500 mt-4 text-center">{error}</p>
@@ -94,7 +94,7 @@ export default function GeocodingGenerator() {
           <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">How to Use</h2>
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li>Enter a city in the input field</li>
-            <li>Click "Get Geocoding Data"</li>
+            <li>Click &quot;Get Geocoding Data&quot;</li>
             <li>View the latitude, longitude, and other details for the city</li>
           </ol>
         </div>
