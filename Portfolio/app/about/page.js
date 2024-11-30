@@ -8,6 +8,7 @@ Email: 200548728@student.georgianc.on.ca
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import personalImage from '../../public/images/personal.jpg'
 
 const experiences = [
   {
@@ -43,7 +44,7 @@ export default function About() {
           >
             <div className="relative aspect-square rounded-2xl overflow-hidden">
               <Image
-                src="/images/personal.jpg"
+                src={personalImage}
                 alt="Demilson Junior"
                 fill
                 className="object-cover"
