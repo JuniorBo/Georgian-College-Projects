@@ -11,7 +11,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
-
 export default function Hero() {
   return (
     <section className="min-h-[90vh] flex items-center">
@@ -85,7 +84,7 @@ export default function Hero() {
             <div className="relative w-full aspect-square">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl" />
               <Image
-                src="/personal-resize.jpg"
+                src="/images/personal-resize.jpg"
                 alt="Demilson Junior"
                 fill
                 className="rounded-full object-cover relative z-10"
