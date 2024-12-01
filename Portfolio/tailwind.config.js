@@ -8,6 +8,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      
       colors: {
         primary: '#2563eb',
         'primary-dark': '#1d4ed8',
@@ -17,5 +18,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
